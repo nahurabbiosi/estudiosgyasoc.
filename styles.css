@@ -523,7 +523,6 @@ img {
 
 .team-card {
   background-color: var(--color-primary);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
   border-top: 3px solid var(--color-secondary);
   padding: 3rem 2rem;
   text-align: center;
@@ -531,6 +530,7 @@ img {
   transition: all var(--transition-fast);
   position: relative;
   z-index: 1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
 .team-card::after {
@@ -567,6 +567,8 @@ img {
   font-size: 1.8rem;
   color: var(--color-white);
   margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
 }
 
 .team-card__specialty {

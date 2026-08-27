@@ -1129,43 +1129,19 @@ img {
 .practice-card:hover li::marker {
   color: #c5a059 !important;
 }
-/* Transición suave para la tarjeta completa */
+/* Transición suave para la tarjeta y la foto */
 .team-card,
-.team-card * {
+.team-card__photo img {
   transition: all 0.3s ease-in-out !important;
 }
 
-/* 1. Al pasar el cursor: cambia el fondo del contenedor principal a blanco */
+/* 1. Resplandor dorado en el marco exterior al pasar el cursor (mantiene el fondo azul) */
 .team-card:hover {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
-  box-shadow: 0 0 25px rgba(197, 160, 89, 0.6) !important;
-  transform: translateY(-6px) !important;
+  box-shadow: 0 0 25px rgba(197, 160, 89, 0.8), 0 0 10px rgba(197, 160, 89, 0.4) !important;
+  transform: translateY(-5px) !important;
 }
 
-/* 2. Remueve el fondo azul de los contenedores internos */
-.team-card:hover .team-card__photo,
-.team-card:hover .team-card__content,
-.team-card:hover div {
-  background: transparent !important;
-  background-color: transparent !important;
-}
-
-/* 3. Luz dorada alrededor de la foto */
+/* 2. Luz dorada únicamente alrededor de la imagen */
 .team-card:hover .team-card__photo img {
-  box-shadow: 0 0 18px rgba(197, 160, 89, 0.7) !important;
-}
-
-/* 4. Nombre y descripción en color negro */
-.team-card:hover .team-card__name,
-.team-card:hover .team-card__description {
-  color: #1a1a1a !important;
-  background-color: transparent !important;
-  text-shadow: none !important;
-}
-
-/* 5. Especialidad en azul y fondo transparente */
-.team-card:hover .team-card__specialty {
-  color: #0b3c74 !important;
-  background-color: transparent !important;
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.85) !important;
 }

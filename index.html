@@ -260,19 +260,19 @@
                             <button type="submit" class="form-group__submit" data-i18n="form-submit">Enviar
                                 Consulta</button>
                         </form>
-<script type="text/javascript" src="https://jsdelivr.net..."></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript">
   emailjs.init({
-    publicKey: "wgYDaJ_J4BtD3mkdl", 
+    publicKey: "wgYDaJ_J4BtD3mkdl",
   });
 
   document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); 
+    event.preventDefault();
 
-    emailjs.sendForm('Estudio SyG', 'wgYDaJ_J4BtD3mkdl', this)
+    emailjs.sendForm('Estudio SyG', 'template_l279769', this)
       .then(() => {
         alert('¡Consulta enviada con éxito!');
-        this.reset(); 
+        this.reset();
       }, (error) => {
         alert('Error al enviar la consulta: ' + JSON.stringify(error));
       });

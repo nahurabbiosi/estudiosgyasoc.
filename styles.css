@@ -1129,3 +1129,31 @@ img {
 .practice-card:hover li::marker {
   color: #c5a059 !important;
 }
+/* Transición suave para la tarjeta del equipo */
+.team-card {
+  transition: all 0.3s ease-in-out !important;
+}
+
+/* Al pasar el cursor: el fondo azul pasa a blanco y el marco tiene resplandor dorado */
+.team-card:hover {
+  background-color: #ffffff !important;
+  box-shadow: 0 0 25px rgba(197, 160, 89, 0.6) !important; /* Resplandor dorado */
+  transform: translateY(-6px) !important;
+}
+
+/* Resplandor dorado en la foto al pasar el cursor */
+.team-card:hover .team-card__photo img {
+  box-shadow: 0 0 18px rgba(197, 160, 89, 0.7) !important;
+}
+
+/* Las letras blancas (nombre y descripción) pasan a negro */
+.team-card:hover .team-card__name,
+.team-card:hover .team-card__description {
+  color: #1a1a1a !important;
+  text-shadow: none !important; /* Quita la sombra anterior del texto */
+}
+
+/* Las letras doradas (especialidad) pasan a azul */
+.team-card:hover .team-card__specialty {
+  color: #0b3c74 !important;
+}

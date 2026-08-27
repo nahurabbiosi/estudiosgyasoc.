@@ -231,8 +231,7 @@
 
                 <div class="contact__grid">
                     <div class="contact__form-wrapper animate-on-scroll">
-                       <form name="contacto" action="https://formspree.io/f/xaeywokp" method="POST" id="contactForm" class="contact__form">
-                            <input type="hidden" name="_subject" value="Nueva consulta desde el sitio web S&amp;G">
+                       <form name="contacto" id="contactForm" class="contact">
                             <div class="form-group">
                                 <label for="name" data-i18n="form-name">Nombre completo</label>
                                 <input type="text" id="name" name="name" required>
@@ -261,6 +260,24 @@
                             <button type="submit" class="form-group__submit" data-i18n="form-submit">Enviar
                                 Consulta</button>
                         </form>
+<script type="text/javascript" src="https://jsdelivr.net..."></script>
+<script type="text/javascript">
+  emailjs.init({
+    publicKey: "wgYDaJ_J4BtD3mkdl", 
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    emailjs.sendForm('Estudio SyG', 'wgYDaJ_J4BtD3mkdl', this)
+      .then(() => {
+        alert('¡Consulta enviada con éxito!');
+        this.reset(); 
+      }, (error) => {
+        alert('Error al enviar la consulta: ' + JSON.stringify(error));
+      });
+  });
+</script>
                     </div>
 
                     <div class="contact__info animate-on-scroll delay-1">

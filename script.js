@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Clear error on input
+  // Clear error on input
     contactForm.querySelectorAll('input, select, textarea').forEach(input => {
       input.addEventListener('input', () => {
         input.classList.remove('error');

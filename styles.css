@@ -1129,31 +1129,43 @@ img {
 .practice-card:hover li::marker {
   color: #c5a059 !important;
 }
-/* Forzar que la tarjeta y cualquier contenedor interno pasen a blanco al pasar el cursor */
-.team-card:hover,
-.team-card:hover * {
-  background-color: #ffffff !important;
+/* Transición suave para la tarjeta completa */
+.team-card,
+.team-card * {
+  transition: all 0.3s ease-in-out !important;
 }
 
-/* Aplicar el resplandor dorado en el borde exterior de la tarjeta */
+/* 1. Al pasar el cursor: cambia el fondo del contenedor principal a blanco */
 .team-card:hover {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
   box-shadow: 0 0 25px rgba(197, 160, 89, 0.6) !important;
   transform: translateY(-6px) !important;
 }
 
-/* Luz dorada alrededor de la imagen */
+/* 2. Remueve el fondo azul de los contenedores internos */
+.team-card:hover .team-card__photo,
+.team-card:hover .team-card__content,
+.team-card:hover div {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* 3. Luz dorada alrededor de la foto */
 .team-card:hover .team-card__photo img {
   box-shadow: 0 0 18px rgba(197, 160, 89, 0.7) !important;
 }
 
-/* Cambiar letras blancas (nombre y descripción) a negro */
+/* 4. Nombre y descripción en color negro */
 .team-card:hover .team-card__name,
 .team-card:hover .team-card__description {
   color: #1a1a1a !important;
+  background-color: transparent !important;
   text-shadow: none !important;
 }
 
-/* Cambiar letras doradas (especialidad) a azul */
+/* 5. Especialidad en azul y fondo transparente */
 .team-card:hover .team-card__specialty {
   color: #0b3c74 !important;
+  background-color: transparent !important;
 }

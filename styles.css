@@ -1101,3 +1101,31 @@ img {
     border-radius: 0 0 4px 4px;
   }
 }
+/* Transición suave para todos los cambios */
+.practice-card {
+  transition: all 0.3s ease-in-out !important;
+}
+
+/* Al pasar el cursor por arriba de la tarjeta */
+.practice-card:hover {
+  background-color: #0b3c74 !important; /* Azul oscuro elegante */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35) !important; /* Sombra elevada */
+  transform: translateY(-6px) !important; /* Levanta suavemente la tarjeta */
+}
+
+/* Cambia el texto del título (h3) a blanco al hacer hover */
+.practice-card:hover h3,
+.practice-card:hover .practice-card__title {
+  color: #ffffff !important;
+}
+
+/* Cambia el texto de los ítems/puntos a blanco al hacer hover */
+.practice-card:hover li,
+.practice-card:hover p {
+  color: #e2e8f0 !important; /* Blanco suave para buena lectura */
+}
+
+/* Mantiene o resalta los puntos/viñetas en color dorado */
+.practice-card:hover li::marker {
+  color: #c5a059 !important;
+}

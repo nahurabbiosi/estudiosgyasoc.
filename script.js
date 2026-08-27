@@ -356,10 +356,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-// 9. CONTACT FORM VALIDATION & FORMSPREE SUBMIT
+  // 9. CONTACT FORM VALIDATION
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
       let isValid = true;
       const name = contactForm.querySelector('input[name="name"]');
       const email = contactForm.querySelector('input[name="email"]');
@@ -367,6 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = contactForm.querySelector('textarea[name="message"]');
       
       const showError = (input, msgKey) => {
+        // Clear previous error if exists
         const oldErr = input.parentElement.querySelector('.form-error');
         if (oldErr) oldErr.remove();
         
@@ -425,13 +428,14 @@ document.addEventListener('DOMContentLoaded', () => {
         clearError(message);
       }
 
-      // Si algún campo no es válido, cancela el envío
-      if (!isValid) {
-        e.preventDefault();
+      if (isValid) {
+        const successMsg = currentLang === 'en' ? translations.en['form-success'] : 'Gracias por su consulta. Nos contactaremos a la brevedad.';
+        alert(successMsg);
+        contactForm.reset();
       }
     });
 
-  // Clear error on input
+    // Clear error on input
     contactForm.querySelectorAll('input, select, textarea').forEach(input => {
       input.addEventListener('input', () => {
         input.classList.remove('error');
@@ -440,4 +444,5 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
 });

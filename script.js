@@ -357,88 +357,87 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // 9. CONTACT FORM VALIDATION & FORMSPREE SUBMIT
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    let isValid = true;
-    const name = contactForm.querySelector('input[name="name"]');
-    const email = contactForm.querySelector('input[name="email"]');
-    const area = contactForm.querySelector('select[name="area"]');
-    const message = contactForm.querySelector('textarea[name="message"]');
-    
-    const showError = (input, msgKey) => {
-      // Clear previous error if exists
-      const oldErr = input.parentElement.querySelector('.form-error');
-      if (oldErr) oldErr.remove();
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      let isValid = true;
+      const name = contactForm.querySelector('input[name="name"]');
+      const email = contactForm.querySelector('input[name="email"]');
+      const area = contactForm.querySelector('select[name="area"]');
+      const message = contactForm.querySelector('textarea[name="message"]');
       
-      input.classList.add('error');
-      const errSpan = document.createElement('span');
-      errSpan.classList.add('form-error');
-      errSpan.style.color = 'red';
-      errSpan.style.fontSize = '0.85rem';
-      errSpan.style.marginTop = '0.25rem';
-      errSpan.style.display = 'block';
-      
-      const errText = currentLang === 'en' ? translations.en[msgKey] : (msgKey === 'form-error-required' ? 'Este campo es requerido' : 'Por favor ingrese un email válido');
-      errSpan.textContent = errText;
-      input.parentElement.appendChild(errSpan);
-    };
+      const showError = (input, msgKey) => {
+        const oldErr = input.parentElement.querySelector('.form-error');
+        if (oldErr) oldErr.remove();
+        
+        input.classList.add('error');
+        const errSpan = document.createElement('span');
+        errSpan.classList.add('form-error');
+        errSpan.style.color = 'red';
+        errSpan.style.fontSize = '0.85rem';
+        errSpan.style.marginTop = '0.25rem';
+        errSpan.style.display = 'block';
+        
+        const errText = currentLang === 'en' ? translations.en[msgKey] : (msgKey === 'form-error-required' ? 'Este campo es requerido' : 'Por favor ingrese un email válido');
+        errSpan.textContent = errText;
+        input.parentElement.appendChild(errSpan);
+      };
 
-    const clearError = (input) => {
-      input.classList.remove('error');
-      const err = input.parentElement.querySelector('.form-error');
-      if (err) err.remove();
-    };
+      const clearError = (input) => {
+        input.classList.remove('error');
+        const err = input.parentElement.querySelector('.form-error');
+        if (err) err.remove();
+      };
 
-    // Validate Name
-    if (name && !name.value.trim()) {
-      showError(name, 'form-error-required');
-      isValid = false;
-    } else if (name) {
-      clearError(name);
-    }
+      // Validate Name
+      if (name && !name.value.trim()) {
+        showError(name, 'form-error-required');
+        isValid = false;
+      } else if (name) {
+        clearError(name);
+      }
 
-    // Validate Email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email && !email.value.trim()) {
-      showError(email, 'form-error-required');
-      isValid = false;
-    } else if (email && !emailRegex.test(email.value.trim())) {
-      showError(email, 'form-error-email');
-      isValid = false;
-    } else if (email) {
-      clearError(email);
-    }
+      // Validate Email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email && !email.value.trim()) {
+        showError(email, 'form-error-required');
+        isValid = false;
+      } else if (email && !emailRegex.test(email.value.trim())) {
+        showError(email, 'form-error-email');
+        isValid = false;
+      } else if (email) {
+        clearError(email);
+      }
 
-    // Validate Area
-    if (area && !area.value) {
-      showError(area, 'form-error-required');
-      isValid = false;
-    } else if (area) {
-      clearError(area);
-    }
+      // Validate Area
+      if (area && !area.value) {
+        showError(area, 'form-error-required');
+        isValid = false;
+      } else if (area) {
+        clearError(area);
+      }
 
-    // Validate Message
-    if (message && !message.value.trim()) {
-      showError(message, 'form-error-required');
-      isValid = false;
-    } else if (message) {
-      clearError(message);
-    }
+      // Validate Message
+      if (message && !message.value.trim()) {
+        showError(message, 'form-error-required');
+        isValid = false;
+      } else if (message) {
+        clearError(message);
+      }
 
-    // Si algún campo no es válido, se cancela el envío para mostrar los errores
-    if (!isValid) {
-      e.preventDefault();
-    }
-    // Si TODO es válido, NO detiene el formulario y se envía automáticamente a Formspree
-  });
-
-  // Clear error on input
-  contactForm.querySelectorAll('input, select, textarea').forEach(input => {
-    input.addEventListener('input', () => {
-      input.classList.remove('error');
-      const err = input.parentElement.querySelector('.form-error');
-      if (err) err.remove();
+      // Si algún campo no es válido, cancela el envío
+      if (!isValid) {
+        e.preventDefault();
+      }
     });
-  });
-}
+
+    // Clear error on input
+    contactForm.querySelectorAll('input, select, textarea').forEach(input => {
+      input.addEventListener('input', () => {
+        input.classList.remove('error');
+        const err = input.parentElement.querySelector('.form-error');
+        if (err) err.remove();
+      });
+    });
+  }
+});

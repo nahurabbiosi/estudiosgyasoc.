@@ -1145,3 +1145,37 @@ img {
 .team-card:hover .team-card__photo img {
   box-shadow: 0 0 20px rgba(197, 160, 89, 0.85) !important;
 }
+html {
+    scroll-behavior: smooth;
+}
+
+.practice-card a {
+    text-decoration: none;
+    display: block;
+}
+
+.practice-card__title {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.practice-card a:hover .practice-card__title {
+    color: var(--gold, #c9a227);
+}
+
+.practice-card {
+    transition: transform 0.3s ease;
+}
+
+.practice-card:hover {
+    transform: translateY(-4px);
+}
+
+.team-card:target {
+    animation: highlight-card 1.5s ease;
+}
+
+@keyframes highlight-card {
+    0% { box-shadow: 0 0 0 4px var(--gold, #c9a227); }
+    100% { box-shadow: none; }
+}

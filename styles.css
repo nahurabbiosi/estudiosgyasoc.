@@ -439,7 +439,42 @@ img {
    ABOUT
    ======================================== */
 .about {
-  background-color: var(--color-white);
+ background: linear-gradient(135deg, #f4f6fa 0%, #f9f8f6 50%, #eef2f7 100%);
+}
+
+/* Lady Justice Watermark on Left */
+.about::before, .team::before, .practice::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  width: 480px;
+  height: 90%;
+  background-image: url('img/lady-justice-bg.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Gold Arc Lines & Navy Swoosh on Right */
+.about::after, .team::after, .practice::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 480px;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 600' preserveAspectRatio='none'%3E%3Cpath d='M 120 0 C 260 180 380 340 480 520' stroke='%23cdb46b' stroke-width='2.5' fill='none' opacity='0.85'/%3E%3Cpath d='M 220 0 C 330 140 410 260 480 380' stroke='%23cdb46b' stroke-width='1.5' fill='none' opacity='0.6'/%3E%3Cpath d='M 150 600 C 280 570 380 480 480 320 L 480 600 Z' fill='%23082650'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: right top;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .about__text {

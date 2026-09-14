@@ -517,6 +517,18 @@ img {
 }
 
 /* ========================================
+   ABOUT - Modify text to include blue box
+   ======================================== */
+.about__text p {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(12, 57, 120, 0.15);
+  line-height: 1.8;
+}
+
+/* ========================================
    TEAM
    ======================================== */
 .team {
@@ -558,10 +570,15 @@ img {
 .team-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-gold);
+  border-top-color: var(--color-secondary-hover);
 }
 
 .team-card:hover::after {
   opacity: 1;
+}
+
+.team-card__photo {
+  display: none;
 }
 
 .team-card__icon {
@@ -575,6 +592,8 @@ img {
   font-size: 1.8rem;
   color: var(--color-white);
   margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .team-card__specialty {
@@ -584,12 +603,16 @@ img {
   letter-spacing: 1px;
   margin-bottom: 1.5rem;
   font-weight: 500;
+  position: relative;
+  z-index: 2;
 }
 
 .team-card__description {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
   line-height: 1.6;
+  position: relative;
+  z-index: 2;
 }
 
 /* ========================================
@@ -1101,7 +1124,7 @@ img {
 
   .section-title { font-size: 1.8rem; }
 
-  .about__text--blue {
+  .about__text p {
     padding: 1.5rem;
   }
 

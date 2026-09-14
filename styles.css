@@ -531,7 +531,7 @@ img {
 
 .team-card {
   background-color: var(--color-primary);
-  box-shadow: 04px 10px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 10px 25px rgba(0, 0, 0, 0.35);
   border-top: 3px solid var(--color-secondary);
   padding: 3rem 2rem;
   text-align: center;
@@ -568,21 +568,6 @@ img {
   font-size: 3rem;
   color: var(--color-secondary);
   margin-bottom: 1.5rem;
-}
-
-.team-card__photo {
-  width: 100%;
-  max-width: 250px;
-  height: 250px;
-  margin: 0 auto 1.5rem;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.team-card__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .team-card__name {
